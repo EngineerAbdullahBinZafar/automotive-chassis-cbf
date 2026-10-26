@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "automotive-chassis-cbf"
+version = "0.1.0"
+description = "Active Suspension & CAN-Bus Dynamics Controller with MPC and CBF Safety Shield"
+authors = [{ name = "BMW / Rolls-Royce Chassis R&D Evaluation" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24,<2.0",
+    "scipy<1.14",
+    "python-can>=4.3.0",
+    "cantools>=39.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
