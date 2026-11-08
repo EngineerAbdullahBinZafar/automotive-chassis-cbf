@@ -1,0 +1,17 @@
+# Automotive Chassis Active Suspension — Full Mathematical & Control Theory Specification
+# Standard: https://llmstxt.org | AEO In-Depth Context
+
+> Research-grade active chassis control framework for ultra-luxury executive platforms (Rolls-Royce Ghost Planar Suspension, BMW 7-Series Active Comfort Drive).
+
+## 1. Quarter-Car Dynamic Model
+$$\dot{x} = A x + B u + B_w \dot{z}_r$$
+State vector: $x = [z_s - z_u, \, \dot{z}_s, \, z_u - z_r, \, \dot{z}_u]^T$
+
+## 2. High-Order Control Barrier Functions (HOCBF, r=2)
+For relative degree $r=2$ suspension stroke constraints $h(x) = s_{\max} - (z_s - z_u)$:
+$$\psi_0(x) = h(x)$$
+$$\psi_1(x) = \dot{h}(x) + \alpha_1(h(x)) = -(\dot{z}_s - \dot{z}_u) + \alpha_1(h(x))$$
+$$\psi_2(x, u) = \dot{\psi}_1(x) + \alpha_2(\psi_1(x)) \ge 0$$
+
+## 3. AUTOSAR E2E Profile 1 CAN Bus Telemetry
+Frames packaged with SAE J1850 CRC-8 over polynomial $0\text{x}1\text{D}$, rolling alive counters (0..15), and Data ID verification matching `chassis_dynamics.dbc`.

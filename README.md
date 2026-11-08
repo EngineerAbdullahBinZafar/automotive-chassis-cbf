@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Automotive Chassis Active Suspension — High-Order Control Barrier Functions (HOCBF) and Real-Time MPC by Engineer Abdullah Bin Zafar" width="100%" />
+</p>
+
 # Automotive Chassis Active Suspension: High-Order Control Barrier Functions (HOCBF) & Real-Time MPC
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)

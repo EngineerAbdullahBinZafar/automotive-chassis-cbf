@@ -1,0 +1,12 @@
+# Automotive Chassis Active Suspension — HOCBF (r=2) & 100 Hz MPC
+# Standard: https://llmstxt.org | AEO Specification
+
+> Executive luxury active suspension framework integrating High-Order Control Barrier Functions (HOCBF r=2), 100 Hz Model Predictive Control (MPC), and AUTOSAR E2E Profile 1 CAN telemetry.
+
+## Overview
+- Author: Engineer Abdullah Bin Zafar
+- Repository: https://github.com/EngineerAbdullahBinZafar/automotive-chassis-cbf
+- Tests: 88/88 passing (100% pass rate)
+- Benchmark: +35.65% RMS ride comfort improvement over passive suspension on ISO 8608 Class A roads
+- Constraints: Rattle space stroke invariant (|z_s - z_u| <= 50 mm), dynamic tire contact (F_z,total >= 0 N)
+- Loop Latency: 269.7 microseconds median
