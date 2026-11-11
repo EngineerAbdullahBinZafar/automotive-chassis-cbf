@@ -6,18 +6,23 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/tests-88%20passed%20%7C%20100%25%20green-brightgreen.svg)](tests/)
+[![CI Status](https://github.com/EngineerAbdullahBinZafar/automotive-chassis-cbf/actions/workflows/ci.yml/badge.svg)](https://github.com/EngineerAbdullahBinZafar/automotive-chassis-cbf/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-88%20passed%20%7C%20100%25-brightgreen.svg)](tests/)
 [![Real-Time Latency](https://img.shields.io/badge/median%20latency-269.7%20%CE%BCs-success.svg)](#real-time-latency--timing-profiler)
 [![Ride Comfort](https://img.shields.io/badge/ISO%202631--1%20comfort-+35.65%25%20RMS%20reduction-blueviolet.svg)](#empirical-performance-benchmarks)
 [![AUTOSAR E2E](https://img.shields.io/badge/AUTOSAR-E2E%20Profile%201%20CRC--8-orange.svg)](#automotive-can-bus-telemetry--autosar-e2e)
 
-An industrial research-grade active chassis control framework for ultra-luxury executive sedans (e.g., **Rolls-Royce Ghost / Phantom Planar Suspension**, **BMW 7-Series Active Comfort Drive**).
+An active chassis control research framework implementing quarter-car and 4-DOF half-car active suspension models evaluated against **ISO 8608 Class A–E stochastic road profiles** and **ISO 2631-1 ride comfort standards**.
 
 Combines **100 Hz Model Predictive Control (MPC)** for ISO 2631-1 vibration mitigation, a **Relative-Degree $r=2$ High-Order Control Barrier Function (HOCBF)** safety shield for strict stroke invariant enforcement ($\pm 50\text{ mm}$) and dynamic tire ground-contact preservation ($F_{z,total} \ge 0\text{ N}$), paired with an **AUTOSAR E2E Profile 1 CAN Bus Telemetry Interface** (`chassis_dynamics.dbc`).
 
 ---
 
 ## Architecture Overview
+
+<p align="center">
+  <img src="docs/assets/quarter_car_hil_topology.svg" width="100%" alt="Quarter-Car Active Suspension HIL Architecture: 100 Hz Condensed MPC, Relative-Degree r=2 HOCBF Filter, Strut Thermal Loop and AUTOSAR E2E CAN Gateway"/>
+</p>
 
 ```
                                       ROAD PREVIEW LOOKAHEAD (0.12 s)
@@ -160,7 +165,7 @@ automotive-chassis-cbf/
 ├── pyproject.toml                     # Pinned dependencies (numpy<2, scipy<1.14, osqp, pytest)
 ├── src/
 │   ├── plant/                         # Milestone 1: High-fidelity vehicle dynamics
-│   │   ├── parameters.py              # Rolls-Royce / BMW 7-Series physical parameters
+│   │   ├── parameters.py              # Executive sedan physical corner/half-car parameters
 │   │   ├── quarter_car.py             # 2-DOF quarter-car plant model
 │   │   ├── half_car.py                # 4-DOF pitch-bounce half-car plant model
 │   │   ├── road_profiles.py           # ISO 8608 Classes A-E, bumps, potholes

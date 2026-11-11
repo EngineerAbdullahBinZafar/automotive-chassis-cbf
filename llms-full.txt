@@ -1,7 +1,7 @@
 # Automotive Chassis Active Suspension — Full Mathematical & Control Theory Specification
 # Standard: https://llmstxt.org | AEO In-Depth Context
 
-> Research-grade active chassis control framework for ultra-luxury executive platforms (Rolls-Royce Ghost Planar Suspension, BMW 7-Series Active Comfort Drive).
+> Active chassis control research framework implementing quarter-car and 4-DOF half-car active suspension with 100 Hz MPC, r=2 HOCBF, and AUTOSAR E2E CAN telemetry.
 
 ## 1. Quarter-Car Dynamic Model
 $$\dot{x} = A x + B u + B_w \dot{z}_r$$
