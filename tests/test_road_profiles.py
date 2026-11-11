@@ -98,7 +98,7 @@ class TestISO8608RoadProfiles:
         gen = ISO8608RoadGenerator(road_class=RoadClass.CLASS_C, velocity=20.0, dt=0.001, seed=42)
         _, z_arr, _ = gen.generate_profile(duration=500.0)
         fs = 1000.0
-        freqs, psd = signal.welch(z_arr, fs=fs, nperseg=16384)
+        freqs, psd = signal.welch(np.asarray(z_arr, dtype=float), fs=fs, nperseg=16384)
         mask = (freqs >= 2.0) & (freqs <= 20.0)
         log_f = np.log10(freqs[mask])
         log_p = np.log10(psd[mask])
